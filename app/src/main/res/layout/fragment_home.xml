@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/es_main_background"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".main.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- Home Appbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- Home Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/es_main_extra"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <!-- R.L wrap 3 thứ -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp">
+
+                <!-- Home Label "Trang chủ" -->
+                <TextView
+                    android:id="@+id/appbar_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/trang_chu"
+                    android:textColor="@color/es_text_blue"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <!-- Home Profile Photo, click dẫn tới Profile Fragment -->
+                <ImageView
+                    android:id="@+id/home_profile_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="40dp"
+                    android:layout_toStartOf="@id/notify_btn"
+                    android:src="@drawable/d1" />
+
+                <!-- Home Notify Icon, click dẫn tới Notify Activity -->
+                <RelativeLayout
+                    android:id="@+id/notify_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/notify_icon"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_notify"
+                        app:tint="@color/es_text_black" />
+
+                    <TextView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignStart="@id/notify_icon"
+                        android:layout_alignTop="@id/notify_icon"
+                        android:background="@drawable/ic_badge_circle"
+                        android:gravity="center"
+                        android:paddingHorizontal="1dp"
+                        android:text=" "
+                        android:textSize="11sp" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_to_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!-- Cuộn dọc toàn màn hình tính từ dưới Appbar -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/main_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarThumbVertical="@null"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <!-- L.L dạng dọc wrap mọi thứ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- Câu chào mừng  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand_light"
+                        android:text="@string/chao_mung"
+                        android:textColor="@color/es_text_black"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/home_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="10dp"
+                        android:text="Administrator !"
+                        android:textColor="@color/es_text_black"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- Home Search Bar -->
+                <LinearLayout
+                    android:id="@+id/main_search_view_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical">
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/main_search_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:duplicateParentState="true"
+                        android:background="@drawable/style_search_view"
+                        app:iconifiedByDefault="false"
+                        app:queryBackground="@null"
+                    app:queryHint="Tìm kiếm 1 số học phần" />
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_banner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:clipToPadding="false" />
+                </RelativeLayout>
+
+                <!-- Home Frame "Học phần" -->
+                <!-- L.L wrap all -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <!-- RL wrap 2 label & 1 arrow -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Home Label "Học phần" -->
+                        <TextView
+                            android:id="@+id/home_set_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/hoc_phan"
+                            android:textColor="@color/es_text_black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <!-- L.L wrap label & mũi tên -->
+                        <LinearLayout
+                            android:id="@+id/view_all_set_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:clickable="true"
+                            android:orientation="horizontal">
+
+                            <!-- Home Label "Xem tất cả" -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/xem_tat_ca"
+                                android:textColor="@color/es_text_blue"
+                                android:textSize="12sp" />
+
+                            <!-- Arrow Right -->
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/ic_arrow_right"
+                                app:tint="@color/es_text_blue" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!-- Cuộn thẻ học phần dạng ngang -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/no_set"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/khong_co_hoc_phan_nao"
+                            android:visibility="gone"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcv_set"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:nestedScrollingEnabled="false"
+                            android:clipToPadding="false" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!-- Home Frame "Thư mục" -->
+                <!-- L.L wrap all -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <!-- R.L wrap 2 label & 1 arrow -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Home Label "Thư mục" -->
+                        <TextView
+                            android:id="@+id/home_folder_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/thu_muc"
+                            android:textColor="@color/es_text_black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <!-- L/L wrap label & mũi tên -->
+                        <LinearLayout
+                            android:id="@+id/view_all_folder_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="horizontal">
+
+                            <!-- Home Label "Xem tất cả" -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/xem_tat_ca"
+                                android:textColor="@color/es_text_blue"
+                                android:textSize="12sp" />
+
+                            <!-- Arrow Right -->
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/ic_arrow_right"
+                                app:tint="@color/es_text_blue" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!-- Cuộn thẻ thư mục dạng ngang -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/no_folder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/khong_co_thu_muc_nao"
+                            android:visibility="gone"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcv_folder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:clipToPadding="false" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!-- Hiển thị danh sách các học phần đã mở gần đây -->
+                <!-- L.L wrap all -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Home Label "Thư mục" -->
+                        <TextView
+                            android:id="@+id/recent_set_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/hoc_gan_day"
+                            android:textColor="@color/es_text_black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <!-- L/L wrap label & mũi tên -->
+                        <LinearLayout
+                            android:id="@+id/delete_set_recent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="horizontal">
+
+                            <!-- Home Label "Xem tất cả" -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="Xóa lịch sử"
+                                android:textColor="@color/red_text_adr"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <!-- L.L wrap các thẻ học phần -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:id="@+id/no_set_recent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/khong_co_hoc_phan_nao"
+                            android:visibility="gone"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcv_recent_set"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:clipToPadding="false" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

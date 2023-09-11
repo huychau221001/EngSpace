@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".learn.CheckMatchingActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/es_main_white"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_close"
+            app:tint="@color/es_text_black" />
+        <LinearLayout
+            android:id="@+id/stop_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions"
+                android:text="Thông báo đến bạn"
+                android:textSize="30dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingHorizontal="20dp"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:text="Bạn không thể sử dụng chức năng này vì học phần chưa có thuật ngữ nào."/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_back1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:text="Quay lại"
+                android:textStyle="bold"
+                android:textColor="@color/es_main_white"
+                android:backgroundTint="@color/es_text_yellow"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ready_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions"
+                android:text="Bạn đã sẵn sàng?"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/success_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:paddingHorizontal="20dp"
+                android:text="Chức năng ghép thẻ đã sẵn sàng cho bạn trải nghiệm."
+                android:textAlignment="center"
+                android:textSize="18dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/es_main_blue"
+                android:padding="20dp"
+                android:text="Bắt đầu"
+                android:textColor="@color/es_main_white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+    <include layout="@layout/include_progress_overlay" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

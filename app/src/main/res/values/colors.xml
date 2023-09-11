@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="purple_200_adr">#FFBB86FC</color>
+    <color name="purple_500_adr">#FF6200EE</color>
+    <color name="purple_700_adr">#FF3700B3</color>
+    <color name="teal_200_adr">#FF03DAC5</color>
+    <color name="teal_700_adr">#FF018786</color>
+    <color name="black_adr">#000000</color>
+    <color name="grey_adr">#5E5E5E</color>
+    <color name="light_white_adr">#F4F7FA</color>
+    <color name="green_adr">#00BD6B</color>
+    <color name="grey_main_adr">#F4F7FA</color>
+    <color name="red_text_adr">#FF0000</color>
+    <color name="es_old_green_text">#009F9F</color>
+<!--        <color name="es_main_background">#</color>-->
+    <color name="es_main_background">#F6F7Fb</color>
+    <color name="es_main_white">#FFFFFF</color>
+    <color name="es_main_blue">#376AED</color>
+    <color name="es_main_extra">#FFFFFF</color>
+    <color name="es_navbar_light_white">#D7DDEC</color>
+    <color name="es_text_red">#F05454</color>
+    <color name="es_text_yellow">#E3B04B</color>
+    <color name="es_text_pink">#E1578A</color>
+    <color name="es_default_red">#FF0000</color>
+    <color name="es_text_neon">#0ad7c2</color>
+    <color name="es_text_black">#26202C</color>
+    <color name="es_text_blue">#376AED</color>
+    <color name="es_text_green">#07E092</color>
+    <color name="es_text_orange">#FFA656</color>
+    <color name="es_text_purple">#700B97</color>
+    <color name="es_text_grey">#5E5E5E</color>
+    <color name="light_neon">#d9ffd8</color>
+    <color name="light_red">#ffcccb</color>
+
+</resources>

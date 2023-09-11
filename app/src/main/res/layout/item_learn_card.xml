@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="108dp"
+    app:cardBackgroundColor="@color/es_main_extra"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/term_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="60dp"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:text="Thuật ngữ Thuật ngữ Thuật ngữ Thuật ngữ Thuật ngữ Thuật ngữ"
+            android:textColor="@color/es_text_black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/definition_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/term_textview"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:text="Định nghĩa"
+            android:textColor="@color/es_text_black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/speak_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/bookmark_icon"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_baseline_volume_up_24" />
+        <ImageView
+            android:id="@+id/bookmark_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_start_note"
+            app:tint="@color/es_text_orange" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
